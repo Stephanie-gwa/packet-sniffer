@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "packetanalyzer"
+version = "1.0.0"
+description = "An offline (and optional live) packet capture analysis tool — parser, summarizer, filters, and suspicious-pattern detectors, no third-party dependencies required."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+dependencies = []
+
+[project.optional-dependencies]
+live = ["scapy>=2.5"]
+
+[project.scripts]
+packetanalyzer = "packetanalyzer.cli:main"
+
+[tool.setuptools]
+packages = ["packetanalyzer"]

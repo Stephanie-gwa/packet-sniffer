@@ -1,0 +1,46 @@
+Packets:   80   Bytes: 4534
+Duration:  0.880s
+
+Protocol breakdown:
+  TCP            46  ( 57.5%)
+  ICMP           30  ( 37.5%)
+  ARP             2  (  2.5%)
+  UDP             2  (  2.5%)
+
+Top talkers (by packet count):
+  192.168.1.10           80
+  198.51.100.66          55
+  203.0.113.20            8
+  203.0.113.10            7
+  203.0.113.11            6
+  192.168.1.1             4
+
+Top conversations:
+  198.51.100.66      -> 192.168.1.10           55
+  192.168.1.10       -> 203.0.113.20            5
+  192.168.1.10       -> 203.0.113.10            4
+  192.168.1.10       -> 203.0.113.11            4
+  203.0.113.10       -> 192.168.1.10            3
+  203.0.113.20       -> 192.168.1.10            3
+  192.168.1.10       -> 192.168.1.1             2
+  192.168.1.1        -> 192.168.1.10            2
+  203.0.113.11       -> 192.168.1.10            2
+
+Most active ports:
+  21          9
+  52050       8
+  52000       7
+  443         7
+  52100       6
+  80          6
+  51000       2
+  53          2
+  40020       1
+  20          1
+
+4 alert(s):
+
+[HIGH  ] port_scan: 198.51.100.66 sent SYN packets to 25 distinct ports on 192.168.1.10 in 0.240s — consistent with a port scan.
+[HIGH  ] cleartext_credentials: Possible credentials sent in cleartext over HTTP between 192.168.1.10 and 203.0.113.11.
+[MEDIUM] icmp_flood: 198.51.100.66 sent 30 ICMP echo requests to 192.168.1.10 in 0.145s.
+[MEDIUM] cleartext_credentials: FTP traffic between 203.0.113.20 and 192.168.1.10 is unencrypted by design.

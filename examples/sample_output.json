@@ -1,0 +1,210 @@
+{
+  "source": "sample_data/sample_capture.pcap",
+  "summary": {
+    "total_packets": 80,
+    "total_bytes": 4534,
+    "start_time": 1735689600.02,
+    "end_time": 1735689600.900003,
+    "duration_seconds": 0.880003,
+    "protocol_counts": {
+      "TCP": 46,
+      "ICMP": 30,
+      "ARP": 2,
+      "UDP": 2
+    },
+    "top_talkers": [
+      {
+        "ip": "192.168.1.10",
+        "packets": 80
+      },
+      {
+        "ip": "198.51.100.66",
+        "packets": 55
+      },
+      {
+        "ip": "203.0.113.20",
+        "packets": 8
+      },
+      {
+        "ip": "203.0.113.10",
+        "packets": 7
+      },
+      {
+        "ip": "203.0.113.11",
+        "packets": 6
+      },
+      {
+        "ip": "192.168.1.1",
+        "packets": 4
+      }
+    ],
+    "top_conversations": [
+      {
+        "src": "198.51.100.66",
+        "dst": "192.168.1.10",
+        "packets": 55
+      },
+      {
+        "src": "192.168.1.10",
+        "dst": "203.0.113.20",
+        "packets": 5
+      },
+      {
+        "src": "192.168.1.10",
+        "dst": "203.0.113.10",
+        "packets": 4
+      },
+      {
+        "src": "192.168.1.10",
+        "dst": "203.0.113.11",
+        "packets": 4
+      },
+      {
+        "src": "203.0.113.10",
+        "dst": "192.168.1.10",
+        "packets": 3
+      },
+      {
+        "src": "203.0.113.20",
+        "dst": "192.168.1.10",
+        "packets": 3
+      },
+      {
+        "src": "192.168.1.10",
+        "dst": "192.168.1.1",
+        "packets": 2
+      },
+      {
+        "src": "192.168.1.1",
+        "dst": "192.168.1.10",
+        "packets": 2
+      },
+      {
+        "src": "203.0.113.11",
+        "dst": "192.168.1.10",
+        "packets": 2
+      }
+    ],
+    "top_ports": [
+      {
+        "port": 21,
+        "packets": 9
+      },
+      {
+        "port": 52050,
+        "packets": 8
+      },
+      {
+        "port": 52000,
+        "packets": 7
+      },
+      {
+        "port": 443,
+        "packets": 7
+      },
+      {
+        "port": 52100,
+        "packets": 6
+      },
+      {
+        "port": 80,
+        "packets": 6
+      },
+      {
+        "port": 51000,
+        "packets": 2
+      },
+      {
+        "port": 53,
+        "packets": 2
+      },
+      {
+        "port": 40020,
+        "packets": 1
+      },
+      {
+        "port": 20,
+        "packets": 1
+      }
+    ],
+    "malformed_count": 0
+  },
+  "alerts": [
+    {
+      "type": "port_scan",
+      "severity": "high",
+      "summary": "198.51.100.66 sent SYN packets to 25 distinct ports on 192.168.1.10 in 0.240s \u2014 consistent with a port scan.",
+      "details": {
+        "src_ip": "198.51.100.66",
+        "dst_ip": "192.168.1.10",
+        "distinct_ports": 25,
+        "ports": [
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44
+        ],
+        "span_seconds": 0.239999,
+        "threshold": 15
+      }
+    },
+    {
+      "type": "cleartext_credentials",
+      "severity": "high",
+      "summary": "Possible credentials sent in cleartext over HTTP between 192.168.1.10 and 203.0.113.11.",
+      "details": {
+        "protocol": "HTTP",
+        "src_ip": "192.168.1.10",
+        "dst_ip": "203.0.113.11",
+        "port": 80,
+        "sample": "POST /login HTTP/1.1\\r\\nHost: example-app.test\\r\\nContent-Type: application/x-www-fo"
+      }
+    },
+    {
+      "type": "icmp_flood",
+      "severity": "medium",
+      "summary": "198.51.100.66 sent 30 ICMP echo requests to 192.168.1.10 in 0.145s.",
+      "details": {
+        "src_ip": "198.51.100.66",
+        "dst_ip": "192.168.1.10",
+        "count": 30,
+        "span_seconds": 0.145004,
+        "threshold": 20
+      }
+    },
+    {
+      "type": "cleartext_credentials",
+      "severity": "medium",
+      "summary": "FTP traffic between 203.0.113.20 and 192.168.1.10 is unencrypted by design.",
+      "details": {
+        "protocol": "FTP",
+        "src_ip": "203.0.113.20",
+        "dst_ip": "192.168.1.10",
+        "port": 21,
+        "sample": "220 sample-ftp ready\\r\\n"
+      }
+    }
+  ],
+  "alert_count": 4
+}
